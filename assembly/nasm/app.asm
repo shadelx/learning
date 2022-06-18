@@ -6,7 +6,7 @@ section .data
 section .text
     global _start               ;entry point for linker
 
-    _start:
+    _start:		x86 -64
         mov rax,1               ;sys_write
         mov rdi,1               ;stdout
         mov rsi,hello           ;message to write
