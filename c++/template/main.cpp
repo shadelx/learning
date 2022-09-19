@@ -20,7 +20,13 @@ class Number {
     T getNum() {
         return num;
     }
+    void setNum(T num);
 };
+
+template <class T>
+void Number<T>::setNum(T num){
+    num(num);
+}
 
 int main() {
     int result1;
