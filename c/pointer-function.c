@@ -10,8 +10,6 @@ int sub(int a, int b);
 int mul(int a, int b);
 int div(int a, int b);
 
-int (*ptr[4])(int a, int b);
-
 int main(int argc, char const *argv[])
 {
     int a = 12;
@@ -54,9 +52,3 @@ int div(int a, int b){
     return a/b;
 }
 
-int (*ptr[4])(int a, int b){
-    ptr[0] = sum;
-    ptr[1] = sub;
-    ptr[2] = mul;
-    ptr[3] = div;
-}
