@@ -44,11 +44,11 @@ main:
     goto main
 ;main loop
 loop:
-    movlw 00000010B
-    movwf var1
-    decf var1,1s
-    btfsc var1
-    mov
+    movlw 00000010B	;l -> w
+    movwf var1		;w -> var1
+    decf var1,1		;var1-1 -> var1
+    movf var1, 0	;var1 -> w
+    movwf PORTA		;w -> PORTA
     goto loop
      
 ;subroutines
