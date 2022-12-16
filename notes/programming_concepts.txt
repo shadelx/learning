@@ -1,0 +1,17 @@
+# pure functions
+it always returns the same results if the same arguments are passed. It only depends on its input arguments
+example:
+function calculateGST( productPrice ) {
+    return productPrice * 0.05;
+}
+
+it does not require any external variable. if a pure functions calls another pure function is still considered pure
+# programacion imperativa
+it focused on the "how to solve"
+OOP(obejct oriented programming)-inheritance(sharing), encapsulation(grouping), abstraction(hiding), polymorphisim(redefining) 
+# programacion declarativa
+it focused on the "what to solve"
+functional programming
+  - recursion instead of loops
+  - inmutable
+
