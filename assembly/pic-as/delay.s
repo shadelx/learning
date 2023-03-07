@@ -6,6 +6,7 @@
 ; Hardware: lED on all PORTB
 ;-------------------
 ; libraries
+; clock cycle, machine cycle, instruction cycle.
 PROCESSOR 16F84A
 #include <xc.inc>
 
@@ -25,10 +26,15 @@ bank1 macro
   endm
 
 ;variables program section define where to store next lines 
-psect udata_shr ; store on common memory, memory that is not located in any bank
+psect udata ; store on common memory, memory that is not located in any bank
  var1:
     ds 1 ; var1 one ram reserved location
-    
+ var2:
+    ds 1
+ var3:
+    ds 1
+ var4:
+    ds 1
 ;reset vector
 psect resetVec,class=CODE,delta=2   ;delta=2 means 2bytes for opcode 14bits
   resetVec:
@@ -38,19 +44,57 @@ psect resetVec,class=CODE,delta=2   ;delta=2 means 2bytes for opcode 14bits
 psect code  ;put code in code section memory
 main:
     bank1
-    clrf TRISA
+    clrf TRISB
     bank0
-    clrf PORTA
-    
+
 ;main loop
 loop:
-    movlw 00000010B	;l -> w
-    movwf var1		;w -> var1
-    decf var1,1		;var1-1 -> var1
-    movf var1, 0	;var1 -> w
-    movwf PORTA		;w -> PORTA
+    movlw 2
+    movwf PORTB
+    call delay_1s
+    movlw 0
+    movwf PORTB
+    call delay_1s
     goto loop
      
 ;subroutines
- 
+test:
+    movlw 3
+    movwf var1
+test_delay:
+    decfsz var1, 1
+    goto test_delay
+    nop
+    return
+    
+delay_500us:
+    movlw 164
+    movwf var1
+    decfsz var1, 1
+    goto $-1
+    return
+delay_100ms:
+    movlw 200
+    movwf var2
+    call  delay_500us
+    decfsz var2, 1
+    goto $-2
+    return
+
+delay_500ms:
+    movlw 5
+    movwf var3
+    call delay_100ms
+    decfsz var3, 1
+    goto $-2
+    return
+    
+delay_1s:
+    movlw 2
+    movwf var4
+    call delay_500ms
+    decfsz var4, 1
+    goto $-2
+    return
+    
 END
