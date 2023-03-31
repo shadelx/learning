@@ -9,3 +9,6 @@ pointers: pointers.c
 	gcc pointers.c -o ./bin/pointers
 array_func_pointers: array_func_pointers.c
 	gcc array_func_pointers.c -o ./bin/array_func_pointers
+
+arr: arr.c
+	gcc arr.c -o ./bin/arr

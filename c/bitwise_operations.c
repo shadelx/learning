@@ -2,7 +2,7 @@
 
 int main(){
     int a = 12;
-    int * ptr;
+    int *ptr;
 
     a= a>>2;  //right operator
     printf("%d\n", a);
