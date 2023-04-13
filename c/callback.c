@@ -17,7 +17,7 @@ void B(ptr pt){      //function pointer as argument void (*ptr)()
 int main(int argc, char const *argv[])
 {
     /* code */
-    void (*p)() = A; //declare function pointer 
+    void (*p)() = A; //declare function pointer, A without parenthis is de memory address of the func  
     B(p);
     B(A);       //A is a callback function
     return 0;

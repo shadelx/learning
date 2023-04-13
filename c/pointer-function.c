@@ -4,7 +4,7 @@ void func1();
 
 int main(){
     //pointer for array
-    void (*func1_ptr)() = &func1;
+    void (*func1_ptr)() = &func1; // func1 = &func1
 
     printf("main function:\n");
 
