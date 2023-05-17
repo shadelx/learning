@@ -68,17 +68,6 @@ int main()
     printf("p1 name %s\n", p1_array[0]->name);
     printf("p1 age %d\n", p1_array[0]->age);
 
-    //typecast pointer
-    int A= 150, *Pa;
-    Pa = &A;
-    double *Pd = (double *)Pa; 
-    char *Pc = (char *)Pa;
-
-
-    printf("Pa value: %d\n", *Pa);
-    printf("Pd value: %f\n", *Pd);
-    printf("Pc value: %c\n", *Pc);
-
     return 0;
 }
 

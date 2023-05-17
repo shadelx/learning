@@ -12,3 +12,6 @@ array_func_pointers: array_func_pointers.c
 
 arr: arr.c
 	gcc arr.c -o ./bin/arr
+
+casting: casting.c
+	gcc casting.c -o ./bin/casting
