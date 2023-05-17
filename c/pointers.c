@@ -1,40 +1,92 @@
 #include <stdio.h>
+// pointer to array, array of pointers, pointer to function, pointer of pointers, string with char pointer
 
-int main (){
-    //pointer declaration
-    int num, *ptr_num;
+void print_something();
+void print_someone();
 
-    num = 10;
-    ptr_num = &num;
+typedef struct person
+{
+    char * name;
+    int age;
+}Person;
 
-    printf("num value:%d\n", num);                  //10
-    printf("num address:%p\n", &num);               //0x7fff298011fc
-    printf("pointer value:%p\n", ptr_num);          //0x7fff298011fc
-    printf("pointer address:%p\n",&ptr_num);        //0x7fff29801200
-    printf("pointer inside value:%d\n\n", *ptr_num);   //10
+int main()
+{
 
-    *ptr_num = 15;
-    printf("num change value:%d\n",num);
-    printf("pointer change inside value:%d\n\n", *ptr_num);
+    int x[3] = {2, 6, 4};
+    // pointer to array, it points to first value
+    int *x_ptr = x;
+    
+    printf("array address: %p\n", x);
+    printf("pointer address: %p\n", x_ptr);
 
-    num = 20;
-    printf("num change value again:%d\n",num);
-    printf("pointer change inside value again:%d\n", *ptr_num);
+    //array pf pointers
+    int value = 20;
+    int *a_ptr[3];
+    a_ptr[1] = &value;
 
+    printf("value: %d\n", *a_ptr[1]);
 
-    //array of pointers
-    int b[] = {1,2,3};
+    //pointer to function
+    void (*func)() = &print_something;
+    (*func)();
 
-    int *a[3];
+    //array of function pointers
+    void (*func_array[2])() = {&print_something, &print_someone};
 
-    for(int i=0;i<3;++i){
-        a[i] = &b[i];
-    }
-
-    for (int i = 0; i < 3; i++)
+    for (int  i = 0; i < 2; i++)
     {
-        printf("%d, ", *a[i]);
+      (*func_array[i])();  
     }
     
+    //string literal
+    char *string_literal = "hello, there";
+    printf("%s\n", string_literal);
+    string_literal = "banana";
+    printf("%s\n", string_literal);
+
+    //pointer to structure
+    Person p1,*p1_ptr;
+ 
+    p1_ptr = &p1;
+
+    p1_ptr->name = "black";
+    p1_ptr->age = 20;
+    
+
+    printf("p1 name %s\n", p1_ptr->name);
+    printf("p1 age %d\n", p1_ptr->age);
+
+    //array of pointer to structure
+    Person *p1_array[2];
+
+    p1_array[0] = &p1;
+
+    p1_array[0]->name = "adam";
+    p1_array[0]->age = 35;
+
+    printf("p1 name %s\n", p1_array[0]->name);
+    printf("p1 age %d\n", p1_array[0]->age);
+
+    //typecast pointer
+    int A= 150, *Pa;
+    Pa = &A;
+    double *Pd = (double *)Pa; 
+    char *Pc = (char *)Pa;
+
+
+    printf("Pa value: %d\n", *Pa);
+    printf("Pd value: %f\n", *Pd);
+    printf("Pc value: %c\n", *Pc);
+
     return 0;
+}
+
+void print_something(){
+    printf("something\n");
+}
+
+void print_someone(){
+    printf("someone\n");
+
 }
