@@ -8,11 +8,10 @@
 int count = 0;
 
 // Creating a stack
-struct stack {
+typedef struct stack {
   int items[MAX];
   int top;
-};
-typedef struct stack st;
+}st;
 
 void createEmptyStack(st *s) {
   s->top = -1;
@@ -68,7 +67,6 @@ void printStack(st *s) {
 
 // Driver code
 int main() {
-  int ch;
   st *s = (st *)malloc(sizeof(st));
 
   createEmptyStack(s);
