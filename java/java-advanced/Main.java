@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Collections;
 
 class Main{
 
@@ -32,6 +33,17 @@ class Main{
     heroes.put("wonderwoman", "diana prince");
     System.out.println(heroes);
     System.out.println(heroes.get("superman"));
-
+	
+	HashMap<String, Integer> cities = new HashMap<>();
+	
+	cities.put("new york", 100);
+	cities.put("santana", 101);
+	cities.put("black", 102);
+	
+	System.out.println(cities);
+	
+	List<Integer> citiesByPopulation = new ArrayList<>(cities.values());
+	Collections.sort(citiesByPopulation);
+	System.out.println(citiesByPopulation);
   }
 }
