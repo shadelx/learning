@@ -21,10 +21,21 @@ class Main{
     Printer<Integer> printer = new Printer<>(23);
     printer.print();
 
-    List<Integer> grades = new ArrayList<>();
-    grades.add(74);
+    
+    Printer <Double> printer2 = new Printer<Double>(45.4);
+    printer2.print();
+
+    ArrayList<Integer> grades = new ArrayList<>();
+    grades.add(200);
     grades.add(90);
     grades.add(100);
+    System.out.println(grades);
+    for (int grade : grades) {
+        System.out.println(grade);
+    }
+    Collections.sort(grades);
+    System.out.println(grades);
+    Collections.reverse(grades);
     System.out.println(grades);
 
     HashMap<String, String> heroes = new HashMap<>();
