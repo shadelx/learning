@@ -30,7 +30,7 @@ int isFull(qe *q)
 
 int isEmpty(qe *q)
 {
-  if ((q->rear == -1) && (q->front == -1))
+  if ((q->rear == -1))
   {
     return 1;
   }
@@ -73,7 +73,7 @@ void deQueue(qe *q)
 
 void printQueue(qe *q)
 {
-  if(isEmpty)
+  if(isEmpty(q))
     printf("\nQueue is Empty!!!");
   else {
     int i;
@@ -92,4 +92,5 @@ int main()
   enQueue(q, 1);
   enQueue(q, 2);
   printQueue(q);
+
 }

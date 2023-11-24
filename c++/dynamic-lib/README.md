@@ -7,7 +7,7 @@ this is a example for dynamic library **
 	g++ -fPIC -c math.cpp -o math.o
 	
 4. create dynamic library 
-	linux:
+	- linux:
 		g++ -shared -o libmath.so math.o
-	windows:
+	- windows:
 		g++ -shared -o math.dll math.o
