@@ -1,13 +1,15 @@
+package Generics;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Collections;
 
-class Main{
+class Main {
 
-  public static void main(String[] args){
-    int [] numbers = {1,2 ,3 ,4};
-    String[] names = {"batman", "robin", "superman"};
+  public static void main(String[] args) {
+    int[] numbers = { 1, 2, 3, 4 };
+    String[] names = { "batman", "robin", "superman" };
     System.out.println("hello,there\n");
 
     for (int n : numbers) {
@@ -33,17 +35,18 @@ class Main{
     heroes.put("wonderwoman", "diana prince");
     System.out.println(heroes);
     System.out.println(heroes.get("superman"));
-	
-	HashMap<String, Integer> cities = new HashMap<>();
-	
-	cities.put("new york", 100);
-	cities.put("santana", 101);
-	cities.put("black", 102);
-	
-	System.out.println(cities);
-	
-	List<Integer> citiesByPopulation = new ArrayList<>(cities.values());
-	Collections.sort(citiesByPopulation);
-	System.out.println(citiesByPopulation);
+
+    HashMap<String, Integer> cities = new HashMap<>();
+
+    cities.put("new york", 100);
+    cities.put("santana", 101);
+    cities.put("black", 102);
+
+    System.out.println(cities);
+
+    List<Integer> citiesByPopulation = new ArrayList<>(cities.values());
+    Collections.sort(citiesByPopulation);
+    System.out.println(citiesByPopulation);
+
   }
 }
