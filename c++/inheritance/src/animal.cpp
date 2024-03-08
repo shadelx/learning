@@ -17,8 +17,9 @@ string animal::toString()const{
     return string("name:"+this->name);
 }
 
-ostream& operator<<(ostream& out, const animal& a){
-	return out << a.toString();
+ostream& operator<<(ostream& out, const animal& obj){
+	return out << obj.toString();
+    // return out <<"name:"a.name;
 }
 
 animal::~animal()
