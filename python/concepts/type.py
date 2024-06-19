@@ -5,7 +5,7 @@ class Person:
     __name = ""
     __age = 0
 
-    def __init__(self, name:str, age:int):
+    def __init__(self, name:str ="none", age:int = 0):
         self.__name = name
         self.__age = age
     
