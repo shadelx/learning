@@ -3,20 +3,20 @@
 
 #define MAX 10
 
-typedef struct Queue
+typedef struct queue
 {
   int items[MAX];
   int front;
   int rear;
-} qe;
+} Queue;
 
-void createEmptyQueue(qe *q)
+void createEmptyQueue(Queue *q)
 {
   q->front = -1;
   q->rear = -1;
 }
 
-int isFull(qe *q)
+int isFull(Queue *q)
 {
   if ((q->rear == MAX - 1) && (q->front == 0))
   {
@@ -28,7 +28,7 @@ int isFull(qe *q)
   }
 }
 
-int isEmpty(qe *q)
+int isEmpty(Queue *q)
 {
   if ((q->rear == -1))
   {
@@ -40,7 +40,7 @@ int isEmpty(qe *q)
   }
 }
 
-void enQueue(qe *q, int value)
+void enQueue(Queue *q, int value)
 {
   if (isFull(q))
   {
@@ -56,7 +56,7 @@ void enQueue(qe *q, int value)
   }
 }
 
-void deQueue(qe *q)
+void deQueue(Queue *q)
 {
   if (isEmpty(q))
   {
@@ -71,7 +71,7 @@ void deQueue(qe *q)
   }
 }
 
-void printQueue(qe *q)
+void printQueue(Queue *q)
 {
   if(isEmpty(q))
     printf("\nQueue is Empty!!!");
@@ -87,7 +87,7 @@ void printQueue(qe *q)
 
 int main()
 {
-  qe *q = (qe *)malloc(sizeof(qe));
+  Queue *q = (Queue *)malloc(sizeof(Queue));
   createEmptyQueue(q);
   enQueue(q, 1);
   enQueue(q, 2);
